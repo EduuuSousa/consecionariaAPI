@@ -21,13 +21,13 @@ export async function inserir( cliente ){
 
 export async function alterar( cliente , id){
     const comando = 
-    `		update   	tb_cliente
-            set 		nm_cliente = ?,
-                        ds_email = ?,
-                        ds_telefone = ?,
-                        ds_cpf = ? ,
-                        ds_cnh = ?
-            where    	id_cliente = ?`
+    `update 	tb_cliente
+     set		nm_cliente  = ?,
+                ds_email = ?,
+                ds_telefone = ?,
+                ds_cpf = ? ,
+                ds_cnh = ?
+     where 	    id_cliente = ?`
 
      let [dados] = await connection.query( comando , [
         cliente.nome,
@@ -39,7 +39,7 @@ export async function alterar( cliente , id){
      ])
      let linha= dados.affectedRows;
      return linha
-}
+};
 
 export async function deletar( id ){
     const comando = 
